@@ -13,7 +13,6 @@ namespace Telas
 {
     public class Login : Form
     {
-        // teste comit
         private System.ComponentModel.IContainer components = null;
 
         Label lblUser;

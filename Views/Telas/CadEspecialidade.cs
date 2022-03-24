@@ -7,13 +7,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Models;
+using Controllers;
 
 namespace Telas
 {
     public class CadEspecialidade : Form
     {
         private System.ComponentModel.IContainer components = null;
-        Label lblNome;
+       
         Label lblDescricao;
         Label lblTarefa;
         TextBox txtNome;
@@ -25,17 +27,17 @@ namespace Telas
         public CadEspecialidade()
         {
 
-            //========== Label e Box do nome =============
+            //========== Label e Box da Tarefa =============
 
-            this.lblNome = new Label();
-            this.lblNome.Text = "Nome";
-            this.lblNome.Location = new Point(130, 30);
+            this.lblTarefa = new Label();
+            this.lblTarefa.Text = "Tarefa";
+            this.lblTarefa.Location = new Point(130, 30);
 
-            this.txtNome = new TextBox();
-            this.txtNome.Location = new Point(60, 60);
-            this.txtNome.Size = new Size(180, 20);
+            this.txtTarefa = new TextBox();
+            this.txtTarefa.Location = new Point(60, 60);
+            this.txtTarefa.Size = new Size(180, 20);
 
-            //========== Label e Box do Email =============
+            //========== Label e Box da Descrição =============
 
             this.lblDescricao = new Label();
             this.lblDescricao.Text = "Descrição";
@@ -44,16 +46,6 @@ namespace Telas
             this.txtDescricao = new TextBox();
             this.txtDescricao.Location = new Point(60, 120);
             this.txtDescricao.Size = new Size(180, 20);
-
-            //========== Label e Box do CPF =============
-
-            this.lblTarefa = new Label();
-            this.lblTarefa.Text = "Tarefa";
-            this.lblTarefa.Location = new Point(130, 150);
-
-            this.txtTarefa = new TextBox();
-            this.txtTarefa.Location = new Point(60, 180);
-            this.txtTarefa.Size = new Size(180, 20);
 
             //=========== Confirmar =============
 
@@ -66,10 +58,9 @@ namespace Telas
             btnCancelar.Click += new EventHandler(this.btnCancelarClick);
 
 
-            this.Controls.Add(this.lblNome);
+            
             this.Controls.Add(this.lblDescricao);
             this.Controls.Add(this.lblTarefa);
-            this.Controls.Add(this.txtNome);
             this.Controls.Add(this.txtDescricao);
             this.Controls.Add(this.txtTarefa);
             this.Controls.Add(this.btnConfirmar);
@@ -90,6 +81,7 @@ namespace Telas
         {
             string message = "Especialidade Cadastrada com sucesso! (Só que não, isso aqui é teste)";
             string caption = " PARABÉNS ";
+            EspecialidadeController.InsertEspecialidade(this.txtTarefa.Text, this.txtDescricao.Text);
             MessageBoxButtons buttons = MessageBoxButtons.YesNo;
             DialogResult result;
 

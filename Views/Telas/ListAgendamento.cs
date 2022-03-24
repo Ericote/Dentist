@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Models;
+using Controllers;
 
 namespace Telas
 {
@@ -25,19 +27,17 @@ namespace Telas
 			lstAgendamento.Location = new Point(50,50 );
 			lstAgendamento.Size = new Size(400,320);
 			lstAgendamento.View = View.Details;
-			ListViewItem agendamento1 = new ListViewItem(" 5");
-			agendamento1.SubItems.Add("3");
-			agendamento1.SubItems.Add("1");
-            agendamento1.SubItems.Add("12/09/2022");
-			ListViewItem agendamento2 = new ListViewItem("3");
-			agendamento2.SubItems.Add("2");
-			agendamento2.SubItems.Add("2");
-            agendamento1.SubItems.Add("13/03/2022");
-			ListViewItem agendamento3 = new ListViewItem("1");
-			agendamento3.SubItems.Add("4");	
-			agendamento3.SubItems.Add("3");	
-            agendamento1.SubItems.Add("05/07/2022");	
-			lstAgendamento.Items.AddRange(new ListViewItem[]{agendamento1, agendamento2, agendamento3});
+			foreach (Agendamento item in AgendamentoController.VisualizarAgendamentos())
+            {
+                ListViewItem item2 = new ListViewItem(item.Id + "");
+                item2.SubItems.Add(item.PacienteId + "");  
+                item2.SubItems.Add(item.DentistaId + "");
+				item2.SubItems.Add(item.SalaId + "");
+				item2.SubItems.Add(item.Data + "");
+                lstAgendamento.Items.AddRange(new ListViewItem[]{item2});
+
+            }
+			lstAgendamento.Columns.Add("ID", -2, HorizontalAlignment.Left);
 			lstAgendamento.Columns.Add("ID Paciente", -2, HorizontalAlignment.Left);
     		lstAgendamento.Columns.Add("ID Dentista", -2, HorizontalAlignment.Left);
 			lstAgendamento.Columns.Add("ID Sala", -2, HorizontalAlignment.Left);

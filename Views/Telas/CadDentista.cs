@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Models;
+using Controllers;
 
 namespace Telas
 {
@@ -162,6 +164,7 @@ namespace Telas
         {
             string message = "Dentista cadastrado com sucesso! (Só que não, isso aqui é teste)";
             string caption = " PARABÉNS ";
+            DentistaController.InserirDentista(this.txtNome.Text,this.txtCPF.Text,this.txtTelefone.Text,this.txtEmail.Text,this.txtSenha.Text,this.txtCRO.Text, Convert.ToInt32(this.txtSalario.Text),Convert.ToInt32(this.txtEspecialidade.Text));
             MessageBoxButtons buttons = MessageBoxButtons.YesNo;
             DialogResult result;
 

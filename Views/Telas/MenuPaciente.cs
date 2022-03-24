@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Models;
+using Controllers;
 
 namespace Telas
 {
@@ -24,19 +26,25 @@ namespace Telas
 			lstMenu.Location = new Point(30,30 );
 			lstMenu.Size = new Size(240,200);
 			lstMenu.View = View.Details;
-			ListViewItem paciente1 = new ListViewItem("Elon Musk");
-			paciente1.SubItems.Add("3");
-			paciente1.SubItems.Add("1971");
-			ListViewItem paciente2 = new ListViewItem("Rainha Elizabeth");
-			paciente2.SubItems.Add("2");
-			paciente2.SubItems.Add("55 AC");
-			ListViewItem paciente3 = new ListViewItem("Bolsonaro");
-			paciente3.SubItems.Add("1");	
-			paciente3.SubItems.Add("1955");		
-			lstMenu.Items.AddRange(new ListViewItem[]{paciente1, paciente2, paciente3});
-			lstMenu.Columns.Add("Nome", -2, HorizontalAlignment.Left);
-    		lstMenu.Columns.Add("ID", -2, HorizontalAlignment.Left);
-			lstMenu.Columns.Add("Ano de Nasc", -2, HorizontalAlignment.Left);
+			foreach (Paciente item in PacienteController.VisualizarPaciente())
+            {
+                ListViewItem item2 = new ListViewItem(item.Id + "");
+                item2.SubItems.Add(item.Nome);  
+                item2.SubItems.Add(item.Cpf);
+                item2.SubItems.Add(item.Fone);
+                item2.SubItems.Add(item.Email);
+                item2.SubItems.Add(item.Senha);
+                item2.SubItems.Add(item.DataNascimento + "");
+                lstMenu.Items.AddRange(new ListViewItem[]{item2});
+
+            }
+			lstMenu.Columns.Add("ID", -2, HorizontalAlignment.Left);
+            lstMenu.Columns.Add("Nome", -2, HorizontalAlignment.Left);
+            lstMenu.Columns.Add("CPF", -2, HorizontalAlignment.Left);
+    		lstMenu.Columns.Add("Telefone", -2, HorizontalAlignment.Left);
+			lstMenu.Columns.Add("E-mail", -2, HorizontalAlignment.Left);
+            lstMenu.Columns.Add("Senha", -2, HorizontalAlignment.Left);
+            lstMenu.Columns.Add("Data de Nascimento", -2, HorizontalAlignment.Left);
 			lstMenu.FullRowSelect = true;
 			lstMenu.GridLines = true;
 			lstMenu.AllowColumnReorder = true;
@@ -60,7 +68,7 @@ namespace Telas
             this.components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(300, 300);
-            this.Text = " Olá Fulano! ";
+            this.Text = " Menu Paciente ";
         }
 
             private void btnSairClick(object sender, EventArgs e)

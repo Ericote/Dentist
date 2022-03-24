@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Models;
+using Controllers;
 
 namespace Telas
 {
@@ -25,19 +27,27 @@ namespace Telas
 			lstDentista.Location = new Point(50,50 );
 			lstDentista.Size = new Size(400,320);
 			lstDentista.View = View.Details;
-			ListViewItem dentista1 = new ListViewItem("Willy Wonka");
-			dentista1.SubItems.Add("3");
-			dentista1.SubItems.Add("Limpeza vitalicia");
-			ListViewItem dentista2 = new ListViewItem("Fada do Dente");
-			dentista2.SubItems.Add("2");
-			dentista2.SubItems.Add("Extração Mágica");
-			ListViewItem dentista3 = new ListViewItem("Mônica");
-			dentista3.SubItems.Add("1");	
-			dentista3.SubItems.Add("Extração bruta com coelho");		
-			lstDentista.Items.AddRange(new ListViewItem[]{dentista1, dentista2, dentista3});
-			lstDentista.Columns.Add("Nome", -2, HorizontalAlignment.Left);
-    		lstDentista.Columns.Add("ID", -2, HorizontalAlignment.Left);
-			lstDentista.Columns.Add("Especialidade", -2, HorizontalAlignment.Left);
+			foreach (Dentista item in DentistaController.VisualizarDentista())
+            {
+                ListViewItem item2 = new ListViewItem(item.Id + "");
+                item2.SubItems.Add(item.Nome);  
+                item2.SubItems.Add(item.Cpf);
+                item2.SubItems.Add(item.Fone);
+                item2.SubItems.Add(item.Email);
+				item2.SubItems.Add(item.Registro);
+                item2.SubItems.Add(item.Salario + "");
+				item2.SubItems.Add(item.EspecialidadeId + "");
+                lstDentista.Items.AddRange(new ListViewItem[]{item2});
+
+            }
+			lstDentista.Columns.Add("ID", -2, HorizontalAlignment.Left);
+    		lstDentista.Columns.Add("Nome", -2, HorizontalAlignment.Left);
+			lstDentista.Columns.Add("CPF", -2, HorizontalAlignment.Left);
+			lstDentista.Columns.Add("Telefone", -2, HorizontalAlignment.Left);
+			lstDentista.Columns.Add("E-mail", -2, HorizontalAlignment.Left);
+			lstDentista.Columns.Add("Registro", -2, HorizontalAlignment.Left);
+			lstDentista.Columns.Add("Salário", -2, HorizontalAlignment.Left);
+			lstDentista.Columns.Add("ID da Especialidade", -2, HorizontalAlignment.Left);
 			lstDentista.FullRowSelect = true;
 			lstDentista.GridLines = true;
 			lstDentista.AllowColumnReorder = true;

@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Models;
+using Controllers;
 
 namespace Telas
 {
@@ -25,18 +27,16 @@ namespace Telas
 			lstSala.Location = new Point(50,50 );
 			lstSala.Size = new Size(400,320);
 			lstSala.View = View.Details;
-			ListViewItem sala1 = new ListViewItem("Sala de Anestesia");
-			sala1.SubItems.Add("3");
-			sala1.SubItems.Add("Agulhas e anestésicos");
-			ListViewItem sala2 = new ListViewItem("Sala de Limpeza");
-			sala2.SubItems.Add("2");
-			sala2.SubItems.Add("ganchos, fluor, escovas");
-			ListViewItem sala3 = new ListViewItem("Sala de Cirurgia");
-			sala3.SubItems.Add("1");	
-			sala3.SubItems.Add("Serra, agulha, tranquilizantes");		
-			lstSala.Items.AddRange(new ListViewItem[]{sala1, sala2, sala3});
-			lstSala.Columns.Add(" Nome da Sala", -2, HorizontalAlignment.Left);
-    		lstSala.Columns.Add("ID", -2, HorizontalAlignment.Left);
+			foreach (Sala item in SalaController.VisualizarSalas())
+            {
+                ListViewItem item2 = new ListViewItem(item.Id + "");
+                item2.SubItems.Add(item.Numero);  
+                item2.SubItems.Add(item.Equipamentos);
+                lstSala.Items.AddRange(new ListViewItem[]{item2});
+
+            }
+			lstSala.Columns.Add(" ID ", -2, HorizontalAlignment.Left);
+    		lstSala.Columns.Add("Número da Sala", -2, HorizontalAlignment.Left);
 			lstSala.Columns.Add("Equipamentos", -2, HorizontalAlignment.Left);
 			lstSala.FullRowSelect = true;
 			lstSala.GridLines = true;
