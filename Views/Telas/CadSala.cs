@@ -7,16 +7,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Controllers;
+using Models;
 
 namespace Telas
 {
     public class CadSala : Form
     {
         private System.ComponentModel.IContainer components = null;
-        Label lblNome;
         Label lblNum;
         Label lblEquipamento;
-        TextBox txtNome;
         TextBox txtNum;
         TextBox txtEquipamento;
         Button btnConfirmar;
@@ -25,15 +25,15 @@ namespace Telas
         public CadSala()
         {
 
-            //========== Label e Box do nome =============
+            //========== Label e Box do Equipamento =============
 
-            this.lblNome = new Label();
-            this.lblNome.Text = "Nome";
-            this.lblNome.Location = new Point(130, 30);
+            this.lblEquipamento = new Label();
+            this.lblEquipamento.Text = "Equipamento";
+            this.lblEquipamento.Location = new Point(115, 30);
 
-            this.txtNome = new TextBox();
-            this.txtNome.Location = new Point(60, 60);
-            this.txtNome.Size = new Size(180, 20);
+            this.txtEquipamento = new TextBox();
+            this.txtEquipamento.Location = new Point(60, 60);
+            this.txtEquipamento.Size = new Size(180, 20);
 
             //========== Label e Box do Número =============
 
@@ -44,16 +44,6 @@ namespace Telas
             this.txtNum = new TextBox();
             this.txtNum.Location = new Point(60, 120);
             this.txtNum.Size = new Size(180, 20);
-
-            //========== Label e Box do CPF =============
-
-            this.lblEquipamento = new Label();
-            this.lblEquipamento.Text = "Equipamento";
-            this.lblEquipamento.Location = new Point(115, 150);
-
-            this.txtEquipamento = new TextBox();
-            this.txtEquipamento.Location = new Point(60, 180);
-            this.txtEquipamento.Size = new Size(180, 20);
 
             //=========== Confirmar =============
 
@@ -66,10 +56,9 @@ namespace Telas
             btnCancelar.Click += new EventHandler(this.btnCancelarClick);
 
 
-            this.Controls.Add(this.lblNome);
+           
             this.Controls.Add(this.lblNum);
             this.Controls.Add(this.lblEquipamento);
-            this.Controls.Add(this.txtNome);
             this.Controls.Add(this.txtNum);
             this.Controls.Add(this.txtEquipamento);
             this.Controls.Add(this.btnConfirmar);
@@ -88,8 +77,9 @@ namespace Telas
 
            public void btnConfirmarClick(object sender, EventArgs e)
         {
-            string message = "Sala Cadastrada com sucesso! (Só que não, isso aqui é teste)";
+            string message = "Sala Cadastrada com sucesso!";
             string caption = " PARABÉNS ";
+            SalaController.IncluirSala(this.txtNum.Text, this.txtEquipamento.Text);
             MessageBoxButtons buttons = MessageBoxButtons.YesNo;
             DialogResult result;
 
@@ -99,6 +89,8 @@ namespace Telas
            {
             	this.Close();
            }
+
+           
 
         }
     }

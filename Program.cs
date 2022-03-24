@@ -49,9 +49,9 @@ namespace ConsultorioOdontologico
 
         public static void Main(string[] args)
         {   
-            // jose.carmo@dentista.com - senha: 123456
-            // amelia.silva@paciente.com - senha 123456
-            //MenuPrincipal();
+            //EspecialidadeController.InsertEspecialidade("Arrancador de dente", "Arrancar dente com alicate");
+            //DentistaController.InserirDentista("José do Carmo", "111.111.111-11", "47 99999-9999", "jose.carmo@dentista.com", "123456", "12345/SC", 15000, 1);
+            //PacienteController.InserirPaciente("Amélia da Silva", "111.111.111-11", "47 88888-8888", "amelia.silva@paciente.com", "123456", Convert.ToDateTime("1990-01-01"));
             Application.EnableVisualStyles();
             Application.Run(new Login());
 

@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Models;
+using Controllers;
 
 namespace Telas
 {
@@ -25,19 +27,17 @@ namespace Telas
 			lstEspecialidade.Location = new Point(50,50 );
 			lstEspecialidade.Size = new Size(400,320);
 			lstEspecialidade.View = View.Details;
-			ListViewItem especialidade1 = new ListViewItem("Extração");
-			especialidade1.SubItems.Add("3");
-			especialidade1.SubItems.Add("Extrair Dentes");
-			ListViewItem especialidade2 = new ListViewItem("Limpeza");
-			especialidade2.SubItems.Add("2");
-			especialidade2.SubItems.Add("Limpar Dentes");
-			ListViewItem especialidade3 = new ListViewItem("Anestesia");
-			especialidade3.SubItems.Add("1");	
-			especialidade3.SubItems.Add("Anestesiar Dentes");		
-			lstEspecialidade.Items.AddRange(new ListViewItem[]{especialidade1, especialidade2, especialidade3});
-			lstEspecialidade.Columns.Add("Nome", -2, HorizontalAlignment.Left);
-    		lstEspecialidade.Columns.Add("ID", -2, HorizontalAlignment.Left);
-			lstEspecialidade.Columns.Add("Tarefa", -2, HorizontalAlignment.Left);
+			foreach (Especialidade item in EspecialidadeController.SelectEspecialidade())
+            {
+                ListViewItem item2 = new ListViewItem(item.Id + "");
+                item2.SubItems.Add(item.Descricao);  
+                item2.SubItems.Add(item.Tarefas);
+                lstEspecialidade.Items.AddRange(new ListViewItem[]{item2});
+
+            }
+			lstEspecialidade.Columns.Add("ID", -2, HorizontalAlignment.Left);
+    		lstEspecialidade.Columns.Add("Tarefa", -2, HorizontalAlignment.Left);
+			lstEspecialidade.Columns.Add("Descrição", -2, HorizontalAlignment.Left);
 			lstEspecialidade.FullRowSelect = true;
 			lstEspecialidade.GridLines = true;
 			lstEspecialidade.AllowColumnReorder = true;

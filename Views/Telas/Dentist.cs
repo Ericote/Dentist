@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Telas;
+using Models;
 
 namespace Telas
 {
@@ -31,8 +32,9 @@ namespace Telas
             //============== Dentista ================
 
             this.lblMenu = new Label();
-            this.lblMenu.Text = " Menu Dentista ";
-            this.lblMenu.Location = new Point(115, 20);
+            this.lblMenu.Text = $" BEM VINDO(A) {Auth.Dentista.Nome} ";
+            this.lblMenu.Location = new Point(80, 15);
+            this.lblMenu.Size = new Size (200,100);
 
             this.btnDentista = new ButtonField("Dentista", 40, 50, 100, 30);
             btnDentista.Click += new EventHandler(this.btnListDentistaClick);

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\eric.araujo\\OneDrive - SENAC-SC\\Documentos\\TelasDentista\\Dentist-Bancos\\ConsultorioOdontologico.csproj": {}
+    "C:\\Users\\eric.araujo\\OneDrive - SENAC-SC\\Documentos\\TelasDentista\\Denist\\Dentist\\ConsultorioOdontologico.csproj": {}
   },
   "projects": {
-    "C:\\Users\\eric.araujo\\OneDrive - SENAC-SC\\Documentos\\TelasDentista\\Dentist-Bancos\\ConsultorioOdontologico.csproj": {
+    "C:\\Users\\eric.araujo\\OneDrive - SENAC-SC\\Documentos\\TelasDentista\\Denist\\Dentist\\ConsultorioOdontologico.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\eric.araujo\\OneDrive - SENAC-SC\\Documentos\\TelasDentista\\Dentist-Bancos\\ConsultorioOdontologico.csproj",
+        "projectUniqueName": "C:\\Users\\eric.araujo\\OneDrive - SENAC-SC\\Documentos\\TelasDentista\\Denist\\Dentist\\ConsultorioOdontologico.csproj",
         "projectName": "ConsultorioOdontologico",
-        "projectPath": "C:\\Users\\eric.araujo\\OneDrive - SENAC-SC\\Documentos\\TelasDentista\\Dentist-Bancos\\ConsultorioOdontologico.csproj",
+        "projectPath": "C:\\Users\\eric.araujo\\OneDrive - SENAC-SC\\Documentos\\TelasDentista\\Denist\\Dentist\\ConsultorioOdontologico.csproj",
         "packagesPath": "C:\\Users\\eric.araujo\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\eric.araujo\\OneDrive - SENAC-SC\\Documentos\\TelasDentista\\Dentist-Bancos\\obj\\",
+        "outputPath": "C:\\Users\\eric.araujo\\OneDrive - SENAC-SC\\Documentos\\TelasDentista\\Denist\\Dentist\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\eric.araujo\\AppData\\Roaming\\NuGet\\NuGet.Config"

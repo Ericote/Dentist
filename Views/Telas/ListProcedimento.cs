@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Models;
+using Controllers;
 
 namespace Telas
 {
@@ -25,21 +27,15 @@ namespace Telas
 			lstProdmt.Location = new Point(50,50 );
 			lstProdmt.Size = new Size(400,320);
 			lstProdmt.View = View.Details;
-			ListViewItem procedimento1 = new ListViewItem("Tirar Dente");
-			procedimento1.SubItems.Add("3");
-			procedimento1.SubItems.Add("Com um alicate, se é arrancado o dente");
-            procedimento1.SubItems.Add("R$ 230.90");
-			ListViewItem procedimento2 = new ListViewItem("Limpa o Dente");
-			procedimento2.SubItems.Add("2");
-			procedimento2.SubItems.Add("Usa equipamentos de limoeza para retirar sujeira entre os dentes");
-            procedimento2.SubItems.Add("R$ 90,00");
-			ListViewItem procedimento3 = new ListViewItem("Exame geral");
-			procedimento3.SubItems.Add("1");	
-			procedimento3.SubItems.Add("É examinado desde a saúde dos dentes, até sua limpeza");
-            procedimento3.SubItems.Add("R$ 300,00");		
-			lstProdmt.Items.AddRange(new ListViewItem[]{procedimento1, procedimento2, procedimento3});
-			lstProdmt.Columns.Add(" Nome ", -2, HorizontalAlignment.Left);
-    		lstProdmt.Columns.Add("ID", -2, HorizontalAlignment.Left);
+			foreach (Procedimento item in ProcedimentoControllers.VisualizarProcedimento())
+            {
+                ListViewItem item2 = new ListViewItem(item.Id + "");
+                item2.SubItems.Add(item.Descricao);  
+                item2.SubItems.Add(item.Preco + "");
+                lstProdmt.Items.AddRange(new ListViewItem[]{item2});
+
+            }
+			lstProdmt.Columns.Add(" ID ", -2, HorizontalAlignment.Left);
 			lstProdmt.Columns.Add("Descrição", -2, HorizontalAlignment.Left);
             lstProdmt.Columns.Add("Preço", -2, HorizontalAlignment.Left);
 			lstProdmt.FullRowSelect = true;

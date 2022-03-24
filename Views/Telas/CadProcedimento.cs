@@ -7,16 +7,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Models;
+using Controllers;
 
 namespace Telas
 {
     public class CadProcedimento : Form
     {
         private System.ComponentModel.IContainer components = null;
-        Label lblNome;
+        
         Label lblDescricao;
         Label lblPreco;
-        TextBox txtNome;
         TextBox txtDescricao;
         TextBox txtPreco;
         Button btnConfirmar;
@@ -27,13 +28,13 @@ namespace Telas
 
             //========== Label e Box do nome =============
 
-            this.lblNome = new Label();
-            this.lblNome.Text = "Nome";
-            this.lblNome.Location = new Point(130, 30);
+            this.lblPreco = new Label();
+            this.lblPreco.Text = "Preço";
+            this.lblPreco.Location = new Point(130, 30);
 
-            this.txtNome = new TextBox();
-            this.txtNome.Location = new Point(60, 60);
-            this.txtNome.Size = new Size(180, 20);
+            this.txtPreco = new TextBox();
+            this.txtPreco.Location = new Point(60, 60);
+            this.txtPreco.Size = new Size(180, 20);
 
             //========== Label e Box da Descrição =============
 
@@ -45,15 +46,6 @@ namespace Telas
             this.txtDescricao.Location = new Point(60, 120);
             this.txtDescricao.Size = new Size(180, 20);
 
-            //========== Label e Box do Preço =============
-
-            this.lblPreco = new Label();
-            this.lblPreco.Text = "Preço";
-            this.lblPreco.Location = new Point(130, 150);
-
-            this.txtPreco = new TextBox();
-            this.txtPreco.Location = new Point(60, 180);
-            this.txtPreco.Size = new Size(180, 20);
 
             //=========== Confirmar =============
 
@@ -66,10 +58,9 @@ namespace Telas
             btnCancelar.Click += new EventHandler(this.btnCancelarClick);
 
 
-            this.Controls.Add(this.lblNome);
+            
             this.Controls.Add(this.lblDescricao);
             this.Controls.Add(this.lblPreco);
-            this.Controls.Add(this.txtNome);
             this.Controls.Add(this.txtDescricao);
             this.Controls.Add(this.txtPreco);
             this.Controls.Add(this.btnConfirmar);
@@ -90,6 +81,7 @@ namespace Telas
         {
             string message = "Procedimento cadastrado com sucesso! (Só que não, isso aqui é teste)";
             string caption = " PARABÉNS ";
+            ProcedimentoControllers.InsertProcedimento(this.txtDescricao.Text, Convert.ToDouble(this.txtPreco.Text));
             MessageBoxButtons buttons = MessageBoxButtons.YesNo;
             DialogResult result;
 
